@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import userRouter from "./routes/user.route.js";
+import formRouter from "./routes/form.route.js";
 import cors from "cors";
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({limit:"50mb",extended:true}));
 app.use(cors({origin:"*"}));
 
 app.use("/auth",userRouter);
+app.use("/form",formRouter);
 
 app.use("/",(req,res)=> {
     res.send("Google form is working. Please");
